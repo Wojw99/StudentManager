@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    app:startDestination="@id/welcomeFragment">
+
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.example.studentmanager.view.WelcomeFragment"
+        android:label="Welcome"
+        tools:layout="@layout/fragment_welcome" >
+        <action
+            android:id="@+id/action_welcomeFragment_to_studentListFragment"
+            app:destination="@id/studentListFragment" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_coursesListFragment"
+            app:destination="@id/coursesListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/studentAddFragment"
+        android:name="com.example.studentmanager.view.AddStudentFragment"
+        android:label="Add student"
+        tools:layout="@layout/fragment_student_add" >
+        <action
+            android:id="@+id/action_studentAddFragment_to_studentListFragment"
+            app:destination="@id/studentListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/studentListFragment"
+        android:name="com.example.studentmanager.view.StudentListFragment"
+        android:label="Student list"
+        tools:layout="@layout/fragment_student_list" >
+        <action
+            android:id="@+id/action_studentListFragment_to_welcomeFragment"
+            app:destination="@id/welcomeFragment" />
+        <action
+            android:id="@+id/action_studentListFragment_to_studentAddFragment"
+            app:destination="@id/studentAddFragment" />
+        <action
+            android:id="@+id/action_studentListFragment_to_updateStudentFragment"
+            app:destination="@id/updateStudentFragment" />
+        <argument
+            android:name="currentUser"
+            app:argType="com.example.studentmanager.model.Student" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateStudentFragment"
+        android:name="com.example.studentmanager.view.UpdateStudentFragment"
+        android:label="Edit student"
+        tools:layout="@layout/fragment_update_student" >
+        <action
+            android:id="@+id/action_updateStudentFragment_to_studentListFragment"
+            app:destination="@id/studentListFragment" />
+        <argument
+            android:name="currentStudent"
+            app:argType="com.example.studentmanager.model.Student" />
+    </fragment>
+    <fragment
+        android:id="@+id/coursesListFragment"
+        android:name="com.example.studentmanager.view.CoursesListFragment"
+        android:label="Courses"
+        tools:layout="@layout/fragment_courses_list" >
+        <argument android:name="currentCourse"
+            app:argType="com.example.studentmanager.model.Course" />
+        <action
+            android:id="@+id/action_coursesListFragment_to_oneCourseFragment"
+            app:destination="@id/oneCourseFragment" />
+        <action
+            android:id="@+id/action_coursesListFragment_to_addCourseFragment"
+            app:destination="@id/addCourseFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addCourseFragment"
+        android:name="com.example.studentmanager.view.AddCourseFragment"
+        android:label="Add course"
+        tools:layout="@layout/fragment_add_course" />
+    <fragment
+        android:id="@+id/updateCourseFragment"
+        android:name="com.example.studentmanager.view.UpdateCourseFragment"
+        android:label="Update course"
+        tools:layout="@layout/fragment_update_course" >
+        <argument
+            android:name="currentCourse"
+            app:argType="com.example.studentmanager.model.Course" />
+    </fragment>
+    <fragment
+        android:id="@+id/oneCourseFragment"
+        android:name="com.example.studentmanager.view.OneCourseFragment"
+        android:label="Course"
+        tools:layout="@layout/fragment_one_course" >
+        <action
+            android:id="@+id/action_oneCourseFragment_to_updateCourseFragment"
+            app:destination="@id/updateCourseFragment" />
+        <argument
+            android:name="currentCourse"
+            app:argType="com.example.studentmanager.model.Course" />
+    </fragment>
+</navigation>

@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">StudentManager</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="report">Report</string>
+    <string name="students">Students</string>
+    <string name="courses">Courses</string>
+    <string name="welcome">Welcome!</string>
+    <string name="delete">Delete</string>
+    <string name="edit">E</string>
+    <string name="sampleCourse">Informatyka sem. 3 IIIF</string>
+    <string name="sampleName">Ryszard Wielkowiejski</string>
+    <string name="plusButton">plusButton</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="group">Course</string>
+    <string name="add">Add</string>
+    <string name="editStudent">Edit</string>
+    <string name="g">G</string>
+    <string name="s">S</string>
+    <string name="course_name">Course name</string>
+    <string name="sample_note">Przykładowa notatka o kursie</string>
+    <string name="course_students">Uczestnicy kursu:</string>
+    <string name="menu_edit">Edytuj</string>
+    <string name="menu_remove">Usuń</string>
+    <string name="note">Note</string>
+    <string name="name">Name</string>
+</resources>
