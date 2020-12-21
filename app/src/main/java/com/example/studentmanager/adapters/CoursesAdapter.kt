@@ -40,6 +40,7 @@ class CoursesAdapter: RecyclerView.Adapter<CoursesAdapter.Holder>() {
         tvNote.text = currentItem.note
 
         layout.setOnClickListener {
+            // Navigate to One Course Fragment with currentItem as argument
             val action = currentItem.let { it1 ->
                 CoursesListFragmentDirections
                     .actionCoursesListFragmentToOneCourseFragment(it1)
