@@ -7,7 +7,7 @@ data class StudentWithGrades(
         @Embedded val student: Student,
         @Relation(
                 parentColumn = "studentId",
-                entityColumn = "gradeId"
+                entityColumn = "ownerId"
         )
-        val grade: List<Grade>
+        val grades: List<Grade>
 )

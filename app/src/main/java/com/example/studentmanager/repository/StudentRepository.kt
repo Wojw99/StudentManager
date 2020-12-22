@@ -4,10 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import com.example.studentmanager.data.StudentDao
-import com.example.studentmanager.model.Course
-import com.example.studentmanager.model.CourseStudentCrossRef
-import com.example.studentmanager.model.CourseWithStudents
-import com.example.studentmanager.model.Student
+import com.example.studentmanager.model.*
 
 /**
  * A repository class abstracts access to multiple data sources
@@ -15,9 +12,15 @@ import com.example.studentmanager.model.Student
 class StudentRepository(private val studentDao: StudentDao) {
     val readAllData: LiveData<List<Student>> = studentDao.readAllStudents()
     val readAllCourseWithStudents: LiveData<List<CourseWithStudents>> = studentDao.getAllCourseWithStudents()
+    val readAllStudentWithCourses: LiveData<List<StudentWithCourses>> = studentDao.getAllStudentWithCourses()
+    val readAllStudentWithGrades: LiveData<List<StudentWithGrades>> = studentDao.getAllStudentWithGrades()
 
     suspend fun addStudentToCourse(studentId: Int, courseId: Int){
         studentDao.addStudentCourseCrossRef(CourseStudentCrossRef(studentId, courseId))
+    }
+
+    suspend fun addGrade(grade: Grade){
+        studentDao.addGrade(grade)
     }
 
     suspend fun addStudent(student: Student){

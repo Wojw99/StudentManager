@@ -12,6 +12,7 @@ import com.example.studentmanager.data.StudentDao
 import com.example.studentmanager.data.StudentDatabase
 import com.example.studentmanager.model.Course
 import com.example.studentmanager.model.CourseStudentCrossRef
+import com.example.studentmanager.model.Grade
 import com.example.studentmanager.model.Student
 import com.example.studentmanager.repository.StudentRepository
 import com.example.studentmanager.viewmodel.CoursesViewModel
@@ -36,11 +37,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun makeSampleEntities(){
         val students = listOf(
-                Student(0, "Mark", "Damil", "Note"),
-                Student(0, "Harry", "Cevil", "Note"),
-                Student(0, "Norman", "Beduss", "Note"),
-                Student(0, "Stephan", "Nowak", "Note"),
-                Student(0, "Bruce", "Wollus", "Note")
+                Student(0, "Mark", "Damil", "Szef koła naukowego"),
+                Student(0, "Harry", "Cevil", ""),
+                Student(0, "Norman", "Beduss", "Jest na ITS"),
+                Student(0, "Stephan", "Nowak", "Dobrze sobie radzi"),
+                Student(0, "Bruce", "Wollus", "...")
         )
 
         students.forEach {
@@ -67,6 +68,11 @@ class MainActivity : AppCompatActivity() {
         references.forEach {
             studentViewModel.addStudentToCourse(it.studentId, it.courseId)
         }
+
+        studentViewModel.addStudentToCourse(1,1)
+        studentViewModel.addStudentToCourse(1,2)
+        studentViewModel.addGrade(Grade(0,1,"2.5","czerwiec","Postaraj się bardziej."))
+        studentViewModel.addGrade(Grade(0,1,"4.5","maj","Wyśmienicie sobie radzi."))
     }
 
     // back arrow action setup

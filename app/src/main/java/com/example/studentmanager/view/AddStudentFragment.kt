@@ -30,6 +30,9 @@ class AddStudentFragment : Fragment() {
 
         view.addButton.setOnClickListener {
             insertDataToDatabase()
+
+            val activityHelper = ActivityHelper()
+            activityHelper.closeKeyboard(activity)
         }
 
         return view
@@ -38,21 +41,23 @@ class AddStudentFragment : Fragment() {
     private fun insertDataToDatabase() {
         val firstName = editTextFirstName.text.toString()
         val lastName = editTextLastName.text.toString()
-        val group = editTextGroup.text.toString()
+        val note = editTextGroup.text.toString()
 
-        if (inputsCorrect(firstName, lastName, group)){
-            val student = Student(0, firstName, lastName, group)
+        if (inputsCorrect(firstName, lastName)){
+            val student = Student(0, firstName, lastName, note)
             studentViewModel.addStudent(student)
+
             Toast.makeText(requireContext(), "Success!", Toast.LENGTH_SHORT).show()
-            findNavController().navigate(R.id.action_studentAddFragment_to_studentListFragment)
+
+            findNavController().navigateUp()
         }
         else {
             Toast.makeText(requireContext(), "Some inputs are not correct!", Toast.LENGTH_SHORT).show()
         }
     }
 
-    private fun inputsCorrect(firstName: String, lastName: String, group: String): Boolean{
-        if(firstName.isEmpty() || lastName.isEmpty() || group.isEmpty()){
+    private fun inputsCorrect(firstName: String, lastName: String): Boolean{
+        if(firstName.isEmpty() || lastName.isEmpty()){
             return false
         }
         return true

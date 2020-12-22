@@ -43,34 +43,20 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
         android:ems="10"
-        android:hint="@string/group"
+        android:hint="@string/note"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/updateTextLastName" />
 
     <Button
-        android:id="@+id/deleteButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:text="@string/delete"
-        app:layout_constraintEnd_toStartOf="@+id/updateButton"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/updateTextGroup" />
-
-    <Button
         android:id="@+id/updateButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="24dp"
-        android:text="@string/editStudent"
+        android:text="@string/accept"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/deleteButton"
         app:layout_constraintTop_toBottomOf="@+id/updateTextGroup" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

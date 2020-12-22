@@ -14,12 +14,12 @@ interface StudentDao {
     @Query("SELECT * FROM student_table")
     fun getAllStudentWithGrades(): LiveData<List<StudentWithGrades>>
 
+    @Insert(onConflict = OnConflictStrategy.IGNORE) // when is a new exactly the same user then we are going to ignore that
+    suspend fun addGrade(grade: Grade)
+
     /* - - - - - - - Student <> Course - - - - - - - */
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun addStudentCourseCrossRef(crossRef: CourseStudentCrossRef)
-
-    @Query("SELECT * FROM course_student_table")
-    fun readAllReferences(): LiveData<List<CourseStudentCrossRef>>
 
     @Transaction
     @Query("SELECT * FROM course_table")

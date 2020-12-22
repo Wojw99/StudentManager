@@ -102,5 +102,4 @@ class OneCourseFragment : Fragment() {
         builder.setMessage("Are You sure you want to delete ${args.currentCourse.name}? The operation is permanent.")
         builder.create().show()
     }
-
 }

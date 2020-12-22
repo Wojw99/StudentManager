@@ -6,11 +6,8 @@ import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
-import com.example.studentmanager.model.Student
 import com.example.studentmanager.data.StudentDatabase
-import com.example.studentmanager.model.Course
-import com.example.studentmanager.model.CourseStudentCrossRef
-import com.example.studentmanager.model.CourseWithStudents
+import com.example.studentmanager.model.*
 import com.example.studentmanager.repository.StudentRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -24,6 +21,8 @@ import kotlinx.coroutines.launch
 class StudentsViewModel(application: Application) : AndroidViewModel(application) {
     val readAllData: LiveData<List<Student>>
     val readAllCourseWithStudents: LiveData<List<CourseWithStudents>>
+    val readAllStudentWithCourses: LiveData<List<StudentWithCourses>>
+    val readAllStudentWithGrades: LiveData<List<StudentWithGrades>>
 
     private val repository: StudentRepository
 
@@ -32,11 +31,19 @@ class StudentsViewModel(application: Application) : AndroidViewModel(application
         repository = StudentRepository(studentDao)
         readAllData = repository.readAllData
         readAllCourseWithStudents = repository.readAllCourseWithStudents
+        readAllStudentWithCourses = repository.readAllStudentWithCourses
+        readAllStudentWithGrades = repository.readAllStudentWithGrades
     }
 
     fun addStudentToCourse(studentId: Int, courseId: Int){
         viewModelScope.launch(Dispatchers.IO) {
             repository.addStudentToCourse(studentId, courseId)
+        }
+    }
+
+    fun addGrade(grade: Grade){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.addGrade(grade)
         }
     }
 

@@ -10,6 +10,7 @@ import kotlinx.android.parcel.Parcelize
 data class Grade(
         @PrimaryKey(autoGenerate = true)
         val gradeId: Int,
+        val ownerId: Int,
         val name: String,
         val date: String,
         val note: String

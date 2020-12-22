@@ -5,15 +5,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
-import android.widget.Toast
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.studentmanager.R
 import com.example.studentmanager.model.Course
 import com.example.studentmanager.view.CoursesListFragmentDirections
-import com.example.studentmanager.view.StudentListFragmentDirections
-import kotlinx.android.synthetic.main.fragment_welcome.view.buttonStudents
-import kotlinx.android.synthetic.main.list_row.view.buttonEdit
 
 class CoursesAdapter: RecyclerView.Adapter<CoursesAdapter.Holder>() {
     private var coursesList = emptyList<Course>()

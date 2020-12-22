@@ -55,6 +55,7 @@ class UpdateCourseFragment : Fragment() {
             Toast.makeText(requireContext(), "Success!", Toast.LENGTH_SHORT).show()
 
             findNavController().navigateUp()
+            findNavController().navigateUp()
         }
         else{
             Toast.makeText(requireContext(), "Please fill out all fields.", Toast.LENGTH_SHORT).show()

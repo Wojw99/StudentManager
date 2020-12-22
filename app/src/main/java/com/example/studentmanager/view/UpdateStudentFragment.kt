@@ -32,53 +32,35 @@ class UpdateStudentFragment : Fragment() {
 
         view.updateButton.setOnClickListener {
             updateItem()
-        }
 
-        view.deleteButton.setOnClickListener {
-            deleteItem()
+            val activityHelper = ActivityHelper()
+            activityHelper.closeKeyboard(activity)
         }
 
         return view
     }
 
-    private fun deleteItem(){
-        val builder = AlertDialog.Builder(requireContext())
-
-        builder.setPositiveButton("Yes"){ _, _ ->
-            viewModel.removeStudent(args.currentStudent)
-
-            val message = "Successfully removed ${args.currentStudent.firstName} ${args.currentStudent.lastName}"
-            Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
-
-            findNavController().navigate(R.id.action_updateStudentFragment_to_studentListFragment)
-        }
-
-        builder.setNegativeButton("No"){ _, _ -> }
-        builder.setTitle("Delete ${args.currentStudent.firstName}?")
-        builder.setMessage("Are You sure you want to delete ${args.currentStudent.firstName}? The operation is permanent.")
-        builder.create().show()
-    }
-
     private fun updateItem(){
         val firstName = updateTextFirstName.text.toString()
         val lastName = updateTextLastName.text.toString()
-        val group = updateTextGroup.text.toString()
+        val note = updateTextGroup.text.toString()
 
-        if(inputsCorrect(firstName, lastName, group)){
-            val updatedStudent = Student(args.currentStudent.studentId, firstName, lastName, group)
+        if(inputsCorrect(firstName, lastName)){
+            val updatedStudent = Student(args.currentStudent.studentId, firstName, lastName, note)
             viewModel.updateStudent(updatedStudent)
 
             Toast.makeText(requireContext(), "Success!", Toast.LENGTH_SHORT).show()
 
-            findNavController().navigate(R.id.action_updateStudentFragment_to_studentListFragment)
+            findNavController().navigateUp()
+            findNavController().navigateUp()
         }
         else{
             Toast.makeText(requireContext(), "Please fill out all fields.", Toast.LENGTH_SHORT).show()
         }
     }
 
-    private fun inputsCorrect(firstName: String, lastName: String, group: String): Boolean{
-        if(firstName.isEmpty() || lastName.isEmpty() || group.isEmpty()){
+    private fun inputsCorrect(firstName: String, lastName: String): Boolean{
+        if(firstName.isEmpty() || lastName.isEmpty()){
             return false
         }
         return true

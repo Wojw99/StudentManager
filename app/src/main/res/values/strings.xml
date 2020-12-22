@@ -25,4 +25,7 @@
     <string name="menu_remove">Usuń</string>
     <string name="note">Note</string>
     <string name="name">Name</string>
+    <string name="student_courses">Kursy:</string>
+    <string name="grades">Oceny:</string>
+    <string name="accept">Accept</string>
 </resources>

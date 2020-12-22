@@ -29,7 +29,6 @@ class StudentAdapter(var studentList: LiveData<List<Student>>): RecyclerView.Ada
         val currentItem = studentList.value?.get(position)
         val tvName = holder.itemView.findViewById<TextView>(R.id.textViewName)
         val tvValue = holder.itemView.findViewById<TextView>(R.id.textViewValue)
-        //val btnDelete = holder.itemView.findViewById<Button>(R.id.buttonDelete)
 
         val firstName = currentItem?.firstName
         val lastName = currentItem?.lastName
@@ -37,11 +36,11 @@ class StudentAdapter(var studentList: LiveData<List<Student>>): RecyclerView.Ada
         tvName.text = fullName
         tvValue.text = currentItem?.group
 
-        holder.itemView.buttonEdit.setOnClickListener {
-            // Navigate to UpdateFragment with specific argument
+        holder.itemView.rowLayout.setOnClickListener {
+            // Navigate to OneStudentFragment with specific argument
             val action = currentItem?.let { it1 ->
                 StudentListFragmentDirections
-                        .actionStudentListFragmentToUpdateStudentFragment(it1)
+                        .actionStudentListFragmentToOneStudentFragment(it1)
             }
             if (action != null) {
                 holder.itemView.findNavController().navigate(action)
