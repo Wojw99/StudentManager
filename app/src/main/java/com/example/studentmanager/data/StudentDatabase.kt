@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import com.example.studentmanager.model.Course
 import com.example.studentmanager.model.CourseStudentCrossRef
 import com.example.studentmanager.model.Grade
@@ -14,6 +15,7 @@ import com.example.studentmanager.model.Student
  * connection to app's persisted, relational data
  * */
 @Database(entities = [Student::class, Course::class, CourseStudentCrossRef::class, Grade::class], version = 1, exportSchema = false)
+@TypeConverters(Converters::class)
 abstract class StudentDatabase: RoomDatabase() {
     abstract fun studentDao(): StudentDao
 
@@ -31,7 +33,7 @@ abstract class StudentDatabase: RoomDatabase() {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     StudentDatabase::class.java,
-                    "student_database12"
+                    "student_database13"
                 ).build()
                 INSTANCE = instance
                 return instance

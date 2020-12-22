@@ -52,7 +52,7 @@ class AddStudentFragment : Fragment() {
             findNavController().navigateUp()
         }
         else {
-            Toast.makeText(requireContext(), "Some inputs are not correct!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), R.string.warning_input_incorrect, Toast.LENGTH_SHORT).show()
         }
     }
 

@@ -10,6 +10,7 @@ import com.example.studentmanager.R
 import com.example.studentmanager.model.Course
 import com.example.studentmanager.model.Grade
 import com.example.studentmanager.model.StudentWithGrades
+import java.util.*
 
 class StudentWithGradesAdapter (var studentGradesList: LiveData<List<StudentWithGrades>>, var studentId: Int)
     : RecyclerView.Adapter<StudentWithGradesAdapter.Holder>() {
@@ -35,7 +36,7 @@ class StudentWithGradesAdapter (var studentGradesList: LiveData<List<StudentWith
     }
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
-        var currentItem = Grade(0,0,"","","")
+        var currentItem = Grade(0,0,"", GregorianCalendar(2020,10,2).time,"")
 
         studentGradesList.value?.forEach {
             if (it.student.studentId == studentId){
@@ -43,11 +44,16 @@ class StudentWithGradesAdapter (var studentGradesList: LiveData<List<StudentWith
             }
         }
 
+        val calendar = GregorianCalendar()
+        calendar.time = currentItem.date
+        val calendarText
+                = "${calendar.get(Calendar.DAY_OF_MONTH)}.${calendar.get(Calendar.MONTH)}.${calendar.get(Calendar.YEAR)}"
+
         val tvName = holder.itemView.findViewById<TextView>(R.id.tvGradeName)
         val tvDate = holder.itemView.findViewById<TextView>(R.id.tvGradeDate)
         val tvNote = holder.itemView.findViewById<TextView>(R.id.tvGradeNote)
         tvName.text = currentItem.name
-        tvDate.text = currentItem.date
+        tvDate.text = calendarText
         tvNote.text = currentItem.note
     }
 }

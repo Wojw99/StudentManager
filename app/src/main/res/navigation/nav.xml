@@ -97,5 +97,17 @@
         <argument
             android:name="currentStudent"
             app:argType="com.example.studentmanager.model.Student" />
+        <action
+            android:id="@+id/action_oneStudentFragment_to_addGradeFragment"
+            app:destination="@id/addGradeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addGradeFragment"
+        android:name="com.example.studentmanager.view.AddGradeFragment"
+        android:label="fragment_add_grade"
+        tools:layout="@layout/fragment_add_grade" >
+        <argument
+            android:name="currentStudent"
+            app:argType="com.example.studentmanager.model.Student" />
     </fragment>
 </navigation>

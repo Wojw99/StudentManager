@@ -1,8 +1,10 @@
 package com.example.studentmanager.view
 
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.annotation.RequiresApi
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.findNavController
@@ -19,6 +21,8 @@ import com.example.studentmanager.viewmodel.CoursesViewModel
 import com.example.studentmanager.viewmodel.StudentsViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.util.*
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var studentViewModel: StudentsViewModel
@@ -68,11 +72,14 @@ class MainActivity : AppCompatActivity() {
         references.forEach {
             studentViewModel.addStudentToCourse(it.studentId, it.courseId)
         }
+        
+        val date1 = GregorianCalendar(2020,11,12)
+        val date2 = GregorianCalendar(2020,11,12)
 
         studentViewModel.addStudentToCourse(1,1)
         studentViewModel.addStudentToCourse(1,2)
-        studentViewModel.addGrade(Grade(0,1,"2.5","czerwiec","Postaraj się bardziej."))
-        studentViewModel.addGrade(Grade(0,1,"4.5","maj","Wyśmienicie sobie radzi."))
+        studentViewModel.addGrade(Grade(0,1,"2.5", date1.time,"Postaraj się bardziej."))
+        studentViewModel.addGrade(Grade(0,1,"4.5", date2.time,"Wyśmienicie sobie radzi."))
     }
 
     // back arrow action setup

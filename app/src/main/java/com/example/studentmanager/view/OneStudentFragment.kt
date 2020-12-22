@@ -84,8 +84,18 @@ class OneStudentFragment : Fragment() {
         else if (id == R.id.itemRemove){
             deleteItem()
         }
+        else if(id == R.id.itemAddGrade){
+            addGrade()
+        }
 
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun addGrade(){
+        // Navigate to AddGradeFragment
+        val action = OneStudentFragmentDirections
+            .actionOneStudentFragmentToAddGradeFragment(args.currentStudent)
+        findNavController().navigate(action)
     }
 
     private fun editItem(){
