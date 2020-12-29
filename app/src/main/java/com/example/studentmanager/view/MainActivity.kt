@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -21,6 +22,8 @@ import com.example.studentmanager.viewmodel.CoursesViewModel
 import com.example.studentmanager.viewmodel.StudentsViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.time.LocalDateTime
+import java.time.ZoneId
 import java.util.*
 
 
@@ -28,6 +31,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var studentViewModel: StudentsViewModel
     private lateinit var courseViewModel: CoursesViewModel
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -37,6 +41,20 @@ class MainActivity : AppCompatActivity() {
         courseViewModel = ViewModelProvider(this).get(CoursesViewModel::class.java)
 
         //makeSampleEntities()
+
+        lifecycleScope.launch {
+            val todayTime = LocalDateTime.now()
+            val yesterdayTime = LocalDateTime.now().minusDays(1)
+            val todayDate = Date.from(todayTime.atZone(ZoneId.systemDefault()).toInstant())
+            val yesterdayDate = Date.from(yesterdayTime.atZone(ZoneId.systemDefault()).toInstant())
+
+            Log.d("Dzisiaj", todayDate.toString())
+
+            val list = studentViewModel.getGradesBetweenDates(yesterdayDate, todayDate)
+            list.forEach {
+                Log.d("Dzisiaj", it.date.toString())
+            }
+        }
     }
 
     private fun makeSampleEntities(){
@@ -75,11 +93,15 @@ class MainActivity : AppCompatActivity() {
         
         val date1 = GregorianCalendar(2020,11,12)
         val date2 = GregorianCalendar(2020,11,12)
+        val date3 = GregorianCalendar(2020,12,28)
+        val date4 = GregorianCalendar(2020,12,28)
 
         studentViewModel.addStudentToCourse(1,1)
         studentViewModel.addStudentToCourse(1,2)
         studentViewModel.addGrade(Grade(0,1,"2.5", date1.time,"Postaraj się bardziej."))
         studentViewModel.addGrade(Grade(0,1,"4.5", date2.time,"Wyśmienicie sobie radzi."))
+        studentViewModel.addGrade(Grade(0,1,"1.5", date3.time,"Bez komentarza."))
+        studentViewModel.addGrade(Grade(0,2,"5.0", date4.time,"Wyżej już nie można."))
     }
 
     // back arrow action setup

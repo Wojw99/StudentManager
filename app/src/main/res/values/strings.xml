@@ -1,24 +1,24 @@
 <resources>
     <string name="app_name">StudentManager</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="report">Report</string>
-    <string name="students">Students</string>
-    <string name="courses">Courses</string>
-    <string name="welcome">Welcome!</string>
-    <string name="delete">Delete</string>
+    <string name="report">raport</string>
+    <string name="students">Studenci</string>
+    <string name="courses">Kursy</string>
+    <string name="welcome">Witaj!</string>
+    <string name="delete">Usuń</string>
     <string name="edit">E</string>
     <string name="sampleCourse">Informatyka sem. 3 IIIF</string>
     <string name="sampleName">Ryszard Wielkowiejski</string>
     <string name="plusButton">plusButton</string>
-    <string name="first_name">First name</string>
-    <string name="last_name">Last name</string>
-    <string name="group">Course</string>
-    <string name="add">Add</string>
-    <string name="editStudent">Edit</string>
+    <string name="first_name">Imię</string>
+    <string name="last_name">Nazwisko</string>
+    <string name="group">Kurs</string>
+    <string name="add">Dodaj</string>
+    <string name="editStudent">Edytuj</string>
     <string name="g">G</string>
     <string name="s">S</string>
-    <string name="course_name">Course name</string>
+    <string name="course_name">Nazwa kursu</string>
     <string name="sample_note">Przykładowa notatka o kursie</string>
     <string name="course_students">Uczestnicy kursu:</string>
     <string name="menu_edit">Edytuj</string>
@@ -27,10 +27,22 @@
     <string name="name">Name</string>
     <string name="student_courses">Kursy:</string>
     <string name="grades">Oceny:</string>
-    <string name="accept">Accept</string>
-    <string name="date">Date</string>
+    <string name="accept">Akceptuj</string>
+    <string name="date">Data</string>
     <string name="grade_add">Dodaj ocenę</string>
 
     <string name="warning_input_incorrect">Nie wszystkie pola są poprawne!</string>
     <string name="toast_succes">Sukces!</string>
+    <string name="rapport">Raport</string>
+    <string name="grades_today">Oceny z dnia</string>
+
+    <string name="label_welcome">Menu</string>
+    <string name="label_studentList">Lista studentów</string>
+    <string name="label_courseList">Lista kursów</string>
+    <string name="label_raport">Raport</string>
+
+    <string name="label_student">Student</string>
+    <string name="label_course">Kurs</string>
+    <string name="label_add">Dodaj</string>
+    <string name="label_edit">Edytuj</string>
 </resources>

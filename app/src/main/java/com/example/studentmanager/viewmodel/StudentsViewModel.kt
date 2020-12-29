@@ -11,6 +11,7 @@ import com.example.studentmanager.model.*
 import com.example.studentmanager.repository.StudentRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.util.*
 
 /**
  * Provides data to the UI and survive configuration changes. It's a communication
@@ -33,6 +34,10 @@ class StudentsViewModel(application: Application) : AndroidViewModel(application
         readAllCourseWithStudents = repository.readAllCourseWithStudents
         readAllStudentWithCourses = repository.readAllStudentWithCourses
         readAllStudentWithGrades = repository.readAllStudentWithGrades
+    }
+
+    suspend fun getGradesBetweenDates(from: Date, to: Date): List<Grade>{
+        return repository.getGradesBetweenDates(from, to)
     }
 
     fun addStudentToCourse(studentId: Int, courseId: Int){

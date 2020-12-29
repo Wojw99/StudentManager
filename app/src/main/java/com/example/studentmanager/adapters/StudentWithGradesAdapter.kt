@@ -10,6 +10,7 @@ import com.example.studentmanager.R
 import com.example.studentmanager.model.Course
 import com.example.studentmanager.model.Grade
 import com.example.studentmanager.model.StudentWithGrades
+import com.example.studentmanager.view.DateHelper
 import java.util.*
 
 class StudentWithGradesAdapter (var studentGradesList: LiveData<List<StudentWithGrades>>, var studentId: Int)
@@ -44,16 +45,13 @@ class StudentWithGradesAdapter (var studentGradesList: LiveData<List<StudentWith
             }
         }
 
-        val calendar = GregorianCalendar()
-        calendar.time = currentItem.date
-        val calendarText
-                = "${calendar.get(Calendar.DAY_OF_MONTH)}.${calendar.get(Calendar.MONTH)}.${calendar.get(Calendar.YEAR)}"
+        val dateHelper = DateHelper()
 
         val tvName = holder.itemView.findViewById<TextView>(R.id.tvGradeName)
         val tvDate = holder.itemView.findViewById<TextView>(R.id.tvGradeDate)
         val tvNote = holder.itemView.findViewById<TextView>(R.id.tvGradeNote)
         tvName.text = currentItem.name
-        tvDate.text = calendarText
+        tvDate.text = dateHelper.getDateText(currentItem.date)
         tvNote.text = currentItem.note
     }
 }

@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import com.example.studentmanager.data.StudentDao
 import com.example.studentmanager.model.*
+import java.util.*
 
 /**
  * A repository class abstracts access to multiple data sources
@@ -21,6 +22,10 @@ class StudentRepository(private val studentDao: StudentDao) {
 
     suspend fun addGrade(grade: Grade){
         studentDao.addGrade(grade)
+    }
+
+    suspend fun getGradesBetweenDates(from: Date, to: Date): List<Grade>{
+        return studentDao.getGradesBetweenDates(from, to)
     }
 
     suspend fun addStudent(student: Student){

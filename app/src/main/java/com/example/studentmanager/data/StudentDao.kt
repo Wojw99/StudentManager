@@ -3,6 +3,7 @@ package com.example.studentmanager.data
 import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.studentmanager.model.*
+import java.util.*
 
 /**
  * Contains methods used for accessing the database
@@ -16,6 +17,9 @@ interface StudentDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE) // when is a new exactly the same user then we are going to ignore that
     suspend fun addGrade(grade: Grade)
+
+    @Query("SELECT * FROM grade_table WHERE date BETWEEN :from AND :to")
+    suspend fun getGradesBetweenDates(from: Date, to: Date): List<Grade>
 
     /* - - - - - - - Student <> Course - - - - - - - */
     @Insert(onConflict = OnConflictStrategy.IGNORE)

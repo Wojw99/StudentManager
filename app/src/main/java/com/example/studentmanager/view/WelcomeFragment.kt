@@ -36,7 +36,7 @@ class WelcomeFragment : Fragment() {
         }
 
         buttonReport.setOnClickListener {
-            Toast.makeText(context, "Report", Toast.LENGTH_SHORT).show()
+            Navigation.findNavController(view).navigate(R.id.action_welcomeFragment_to_raportFragment)
         }
     }
 }
