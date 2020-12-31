@@ -3,6 +3,7 @@ package com.example.studentmanager.view
 import android.app.AlertDialog
 import android.os.Bundle
 import android.view.*
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -15,6 +16,7 @@ import com.example.studentmanager.adapters.StudentWithCoursesAdapter
 import com.example.studentmanager.adapters.StudentWithGradesAdapter
 import com.example.studentmanager.viewmodel.StudentsViewModel
 import kotlinx.android.synthetic.main.fragment_one_student.*
+import kotlinx.android.synthetic.main.fragment_student_add.*
 
 class OneStudentFragment : Fragment() {
     private val args by navArgs<OneStudentFragmentArgs>()

@@ -54,10 +54,12 @@ class StudentWithGradesAdapter (var studentGradesList: LiveData<List<StudentWith
         val tvName = holder.itemView.tvGradeName
         val tvDate = holder.itemView.tvGradeDate
         val tvNote = holder.itemView.tvGradeNote
+        val tvCourse = holder.itemView.tvGradeCourse
         val btnRemove = holder.itemView.btnGradeRemove
         tvName.text = currentItem.name
         tvDate.text = dateHelper.getDateText(currentItem.date)
         tvNote.text = currentItem.note
+        tvCourse.text = currentItem.course
 
         btnRemove.setOnClickListener {
             viewModel.deleteGrade(currentItem)

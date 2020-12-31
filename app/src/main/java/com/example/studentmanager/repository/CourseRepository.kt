@@ -9,7 +9,12 @@ import com.example.studentmanager.model.Student
 
 class CourseRepository(private val studentDao: StudentDao) {
     val readAllData: LiveData<List<Course>> = studentDao.readAllCourses()
+    val readAllCourseNames: LiveData<List<String>> = studentDao.readAllCourseNames()
     val readAllCourseWithStudents: LiveData<List<CourseWithStudents>> = studentDao.getAllCourseWithStudents()
+
+    suspend fun getAllCourseNames(): List<String>{
+        return studentDao.getAllCourseNames()
+    }
 
     suspend fun addStudentToCourse(studentId: Int, courseId: Int){
         studentDao.addStudentCourseCrossRef(CourseStudentCrossRef(studentId, courseId))

@@ -14,5 +14,6 @@ data class Grade(
         val ownerId: Int,
         val name: String,
         val date: Date,
-        val note: String
+        val note: String,
+        val course: String = "None"
 ): Parcelable

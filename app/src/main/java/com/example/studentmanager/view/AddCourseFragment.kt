@@ -45,12 +45,12 @@ class AddCourseFragment : Fragment() {
             val course = Course(0, name, note)
             viewModel.addCourse(course)
 
-            Toast.makeText(requireContext(), "Success!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), getString(R.string.toast_succes), Toast.LENGTH_SHORT).show()
 
             findNavController().navigateUp()
         }
         else {
-            Toast.makeText(requireContext(), "Some inputs are not correct!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), getText(R.string.warning_input_incorrect), Toast.LENGTH_SHORT).show()
         }
     }
 }

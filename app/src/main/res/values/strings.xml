@@ -33,6 +33,7 @@
     <string name="add_to_course">Dodaj do kursu</string>
 
     <string name="warning_input_incorrect">Nie wszystkie pola są poprawne!</string>
+    <string name="warning_course_empty">Przed dodaniem oceny utwórz dowolny kurs.</string>
     <string name="toast_succes">Sukces!</string>
     <string name="rapport">Raport</string>
     <string name="grades_today">Oceny z dnia</string>

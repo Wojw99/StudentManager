@@ -68,4 +68,10 @@ interface StudentDao {
     @Query("SELECT * FROM course_table ORDER BY courseId ASC") // get all user and order them
     fun readAllCourses(): LiveData<List<Course>>
 
+    @Query("SELECT name FROM course_table ORDER BY courseId ASC") // get all user and order them
+    fun readAllCourseNames(): LiveData<List<String>>
+
+    @Transaction
+    @Query("SELECT name FROM course_table ORDER BY courseId ASC")
+    suspend fun getAllCourseNames(): List<String>
 }

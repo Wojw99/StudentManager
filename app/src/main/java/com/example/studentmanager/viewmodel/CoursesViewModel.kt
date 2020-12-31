@@ -15,6 +15,7 @@ import kotlinx.coroutines.launch
 
 class CoursesViewModel(application: Application) : AndroidViewModel(application) {
     val readAllData: LiveData<List<Course>>
+    val readAllCourseNames: LiveData<List<String>>
     val readAllCourseWithStudents: LiveData<List<CourseWithStudents>>
 
     private val repository: CourseRepository
@@ -23,6 +24,7 @@ class CoursesViewModel(application: Application) : AndroidViewModel(application)
         val studentDao = StudentDatabase.getDatabase(application).studentDao()
         repository = CourseRepository(studentDao)
         readAllData = repository.readAllData
+        readAllCourseNames = repository.readAllCourseNames
         readAllCourseWithStudents = repository.readAllCourseWithStudents
     }
 
@@ -30,6 +32,10 @@ class CoursesViewModel(application: Application) : AndroidViewModel(application)
         viewModelScope.launch(Dispatchers.IO) {
             repository.addStudentToCourse(studentId, courseId)
         }
+    }
+
+    suspend fun getAllCourseNames(): List<String>{
+        return repository.getAllCourseNames()
     }
 
     /**

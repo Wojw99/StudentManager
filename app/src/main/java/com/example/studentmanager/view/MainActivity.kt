@@ -84,10 +84,10 @@ class MainActivity : AppCompatActivity() {
 
         studentViewModel.addStudentToCourse(1,1)
         studentViewModel.addStudentToCourse(1,2)
-        studentViewModel.addGrade(Grade(0,1,"2.5", date1.time,"Postaraj się bardziej."))
-        studentViewModel.addGrade(Grade(0,1,"4.5", date2.time,"Wyśmienicie sobie radzi."))
-        studentViewModel.addGrade(Grade(0,1,"1.5", date3.time,"Bez komentarza."))
-        studentViewModel.addGrade(Grade(0,2,"5.0", date4.time,"Wyżej już nie można."))
+        studentViewModel.addGrade(Grade(0,1,"2.5", date1.time,"Postaraj się bardziej.", courses[0].name))
+        studentViewModel.addGrade(Grade(0,1,"4.5", date2.time,"Wyśmienicie sobie radzi.", courses[0].name))
+        studentViewModel.addGrade(Grade(0,1,"1.5", date3.time,"Bez komentarza.", courses[0].name))
+        studentViewModel.addGrade(Grade(0,2,"5.0", date4.time,"Wyżej już nie można.", courses[0].name))
     }
 
     // back arrow action setup

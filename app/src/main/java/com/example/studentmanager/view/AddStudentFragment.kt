@@ -47,7 +47,7 @@ class AddStudentFragment : Fragment() {
             val student = Student(0, firstName, lastName, note)
             studentViewModel.addStudent(student)
 
-            Toast.makeText(requireContext(), "Success!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), getString(R.string.toast_succes), Toast.LENGTH_SHORT).show()
 
             findNavController().navigateUp()
         }
