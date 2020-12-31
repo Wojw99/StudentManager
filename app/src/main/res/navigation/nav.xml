@@ -103,6 +103,9 @@
         <action
             android:id="@+id/action_oneStudentFragment_to_addGradeFragment"
             app:destination="@id/addGradeFragment" />
+        <action
+            android:id="@+id/action_oneStudentFragment_to_studentToCourseListFragment"
+            app:destination="@id/studentToCourseListFragment" />
     </fragment>
     <fragment
         android:id="@+id/addGradeFragment"
@@ -118,4 +121,13 @@
         android:name="com.example.studentmanager.view.RaportFragment"
         android:label="@string/label_raport"
         tools:layout="@layout/fragment_raport" />
+    <fragment
+        android:id="@+id/studentToCourseListFragment"
+        android:name="com.example.studentmanager.view.StudentToCourseListFragment"
+        android:label="@string/add_to_course"
+        tools:layout="@layout/fragment_student_to_course_list" >
+        <argument
+            android:name="currentStudent"
+            app:argType="com.example.studentmanager.model.Student" />
+    </fragment>
 </navigation>

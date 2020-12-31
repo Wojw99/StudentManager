@@ -76,19 +76,21 @@ class OneStudentFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         // Handle menu item clicks
-        val id = item.itemId
 
-        if(id == R.id.itemEdit){
-            editItem()
-        }
-        else if (id == R.id.itemRemove){
-            deleteItem()
-        }
-        else if(id == R.id.itemAddGrade){
-            addGrade()
+        when (item.itemId) {
+            R.id.itemEdit -> editItem()
+            R.id.itemRemove -> deleteItem()
+            R.id.itemAddGrade -> addGrade()
+            R.id.itemAddToCourse -> addToCourse()
         }
 
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun addToCourse(){
+        val action = OneStudentFragmentDirections
+            .actionOneStudentFragmentToStudentToCourseListFragment(args.currentStudent)
+        findNavController().navigate(action)
     }
 
     private fun addGrade(){

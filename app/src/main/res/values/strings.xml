@@ -30,6 +30,7 @@
     <string name="accept">Akceptuj</string>
     <string name="date">Data</string>
     <string name="grade_add">Dodaj ocenę</string>
+    <string name="add_to_course">Dodaj do kursu</string>
 
     <string name="warning_input_incorrect">Nie wszystkie pola są poprawne!</string>
     <string name="toast_succes">Sukces!</string>
@@ -45,4 +46,5 @@
     <string name="label_course">Kurs</string>
     <string name="label_add">Dodaj</string>
     <string name="label_edit">Edytuj</string>
+    <string name="label_addToCourse">Dodaj do kursu</string>
 </resources>

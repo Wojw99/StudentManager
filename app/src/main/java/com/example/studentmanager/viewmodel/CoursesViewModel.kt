@@ -26,6 +26,12 @@ class CoursesViewModel(application: Application) : AndroidViewModel(application)
         readAllCourseWithStudents = repository.readAllCourseWithStudents
     }
 
+    fun addStudentToCourse(studentId: Int, courseId: Int){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.addStudentToCourse(studentId, courseId)
+        }
+    }
+
     /**
      * Add course to the database in a background thread
      * */
