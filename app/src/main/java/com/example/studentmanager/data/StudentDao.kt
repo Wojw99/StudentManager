@@ -18,12 +18,18 @@ interface StudentDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE) // when is a new exactly the same user then we are going to ignore that
     suspend fun addGrade(grade: Grade)
 
+    @Delete
+    suspend fun deleteGrade(grade: Grade)
+
     @Query("SELECT * FROM grade_table WHERE date BETWEEN :from AND :to")
     suspend fun getGradesBetweenDates(from: Date, to: Date): List<Grade>
 
     /* - - - - - - - Student <> Course - - - - - - - */
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun addStudentCourseCrossRef(crossRef: CourseStudentCrossRef)
+
+    @Delete
+    suspend fun deleteStudentCourseCrossRef(crossRef: CourseStudentCrossRef)
 
     @Transaction
     @Query("SELECT * FROM course_table")

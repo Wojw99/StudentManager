@@ -16,12 +16,20 @@ class StudentRepository(private val studentDao: StudentDao) {
     val readAllStudentWithCourses: LiveData<List<StudentWithCourses>> = studentDao.getAllStudentWithCourses()
     val readAllStudentWithGrades: LiveData<List<StudentWithGrades>> = studentDao.getAllStudentWithGrades()
 
+    suspend fun deleteStudentFromCourse(studentId: Int, courseId: Int){
+        studentDao.deleteStudentCourseCrossRef(CourseStudentCrossRef(studentId, courseId))
+    }
+
     suspend fun addStudentToCourse(studentId: Int, courseId: Int){
         studentDao.addStudentCourseCrossRef(CourseStudentCrossRef(studentId, courseId))
     }
 
     suspend fun addGrade(grade: Grade){
         studentDao.addGrade(grade)
+    }
+
+    suspend fun deleteGrade(grade: Grade){
+        studentDao.deleteGrade(grade)
     }
 
     suspend fun getGradesBetweenDates(from: Date, to: Date): List<Grade>{

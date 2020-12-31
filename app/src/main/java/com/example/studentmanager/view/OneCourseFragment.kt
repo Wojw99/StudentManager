@@ -89,17 +89,15 @@ class OneCourseFragment : Fragment() {
 
     private fun deleteItem(){
         val builder = AlertDialog.Builder(requireContext())
-        builder.setPositiveButton("Yes"){ _, _ ->
+
+        builder.setPositiveButton(getString(R.string.alert_yes)){ _, _ ->
             viewModel.removeCourse(args.currentCourse)
-
-            val message = "Successfully removed ${args.currentCourse.name}"
-            Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
-
             findNavController().navigateUp()
         }
-        builder.setNegativeButton("No"){ _, _ -> }
-        builder.setTitle("Delete ${args.currentCourse.name}?")
-        builder.setMessage("Are You sure you want to delete ${args.currentCourse.name}? The operation is permanent.")
+        builder.setNegativeButton(getString(R.string.alert_no)){ _, _ -> }
+
+        builder.setTitle(getText(R.string.alert_are_you_sure_title))
+        builder.setMessage(getText(R.string.alert_are_you_sure))
         builder.create().show()
     }
 }

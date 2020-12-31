@@ -31,11 +31,13 @@ class OneStudentFragment : Fragment() {
 
         coursesAdapter = StudentWithCoursesAdapter(
             viewModel.readAllStudentWithCourses,
-            args.currentStudent.studentId
+            args.currentStudent.studentId,
+            viewModel
         )
         gradesAdapter = StudentWithGradesAdapter(
             viewModel.readAllStudentWithGrades,
-            args.currentStudent.studentId
+            args.currentStudent.studentId,
+            viewModel
         )
 
         viewModel.readAllStudentWithCourses.observe(viewLifecycleOwner, Observer { _ ->
@@ -110,18 +112,14 @@ class OneStudentFragment : Fragment() {
     private fun deleteItem(){
         val builder = AlertDialog.Builder(requireContext())
 
-        builder.setPositiveButton("Yes"){ _, _ ->
+        builder.setPositiveButton(getString(R.string.alert_yes)){ _, _ ->
             viewModel.removeStudent(args.currentStudent)
-
-            val message = "Successfully removed ${args.currentStudent.firstName}"
-            Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
-
             findNavController().navigateUp()
         }
-        builder.setNegativeButton("No"){ _, _ -> }
+        builder.setNegativeButton(getString(R.string.alert_no)){ _, _ -> }
 
-        builder.setTitle("Delete this item?")
-        builder.setMessage("Are You sure you want to delete ${args.currentStudent.firstName}? The operation is permanent.")
+        builder.setTitle(getText(R.string.alert_are_you_sure_title))
+        builder.setMessage(getText(R.string.alert_are_you_sure))
         builder.create().show()
     }
 }

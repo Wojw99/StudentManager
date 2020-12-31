@@ -9,7 +9,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="24dp"
+        android:layout_marginHorizontal="16dp"
         android:layout_marginTop="32dp"
         android:layout_marginBottom="10dp"
         android:textSize="21sp"
@@ -20,14 +20,14 @@
         android:id="@+id/tvDatesToday"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="24dp"
+        android:layout_marginHorizontal="16dp"
         android:layout_marginBottom="24dp"
         android:textSize="17sp"
         android:text="@string/grades_today" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewRapport"
-        android:layout_marginHorizontal="24dp"
+        android:layout_marginHorizontal="16dp"
         android:layout_marginBottom="24dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

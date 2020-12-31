@@ -46,9 +46,21 @@ class StudentsViewModel(application: Application) : AndroidViewModel(application
         }
     }
 
+    fun deleteStudentFromCourse(studentId: Int, courseId: Int){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteStudentFromCourse(studentId, courseId)
+        }
+    }
+
     fun addGrade(grade: Grade){
         viewModelScope.launch(Dispatchers.IO) {
             repository.addGrade(grade)
+        }
+    }
+
+    fun deleteGrade(grade: Grade){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteGrade(grade)
         }
     }
 

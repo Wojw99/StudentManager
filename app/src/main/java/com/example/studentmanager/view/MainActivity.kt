@@ -41,20 +41,6 @@ class MainActivity : AppCompatActivity() {
         courseViewModel = ViewModelProvider(this).get(CoursesViewModel::class.java)
 
         //makeSampleEntities()
-
-        lifecycleScope.launch {
-            val todayTime = LocalDateTime.now()
-            val yesterdayTime = LocalDateTime.now().minusDays(1)
-            val todayDate = Date.from(todayTime.atZone(ZoneId.systemDefault()).toInstant())
-            val yesterdayDate = Date.from(yesterdayTime.atZone(ZoneId.systemDefault()).toInstant())
-
-            Log.d("Dzisiaj", todayDate.toString())
-
-            val list = studentViewModel.getGradesBetweenDates(yesterdayDate, todayDate)
-            list.forEach {
-                Log.d("Dzisiaj", it.date.toString())
-            }
-        }
     }
 
     private fun makeSampleEntities(){

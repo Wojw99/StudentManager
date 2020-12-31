@@ -8,4 +8,16 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="transparent">#00FFFFFF</color>
+
+<!--    <color name="green_darker">#1F5E8E</color>-->
+<!--    <color name="green_dark">#3196e2</color>-->
+<!--    <color name="green_light">#ffc05d</color>-->
+<!--    <color name="accent">#ff826c</color>-->
+
+    <color name="green_darker">#1B4563</color>
+    <color name="green_dark">#26638e</color>
+    <color name="green_light">#4f8fc0</color>
+    <color name="accent">#ff826c</color>
+
+    <color name="gray">#AD151515</color>
 </resources>

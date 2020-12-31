@@ -10,7 +10,7 @@
         android:id="@+id/tvStudentName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="24dp"
+        android:layout_marginHorizontal="16dp"
         android:layout_marginTop="32dp"
         android:layout_marginBottom="10dp"
         android:textSize="21sp"
@@ -21,7 +21,7 @@
         android:id="@+id/tvStudentNote"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="24dp"
+        android:layout_marginHorizontal="16dp"
         android:layout_marginBottom="24dp"
         android:textSize="19sp"
         android:text="@string/sample_note" />
@@ -29,13 +29,13 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="24dp"
+        android:layout_marginHorizontal="16dp"
         android:textSize="17sp"
         android:text="@string/student_courses" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewCourses"
-        android:layout_marginHorizontal="24dp"
+        android:layout_marginHorizontal="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
@@ -43,13 +43,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:layout_marginHorizontal="24dp"
+        android:layout_marginHorizontal="16dp"
         android:textSize="17sp"
         android:text="@string/grades" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewGrades"
-        android:layout_marginHorizontal="24dp"
+        android:layout_marginHorizontal="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 

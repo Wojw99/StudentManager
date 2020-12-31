@@ -11,9 +11,13 @@ import com.example.studentmanager.model.Course
 import com.example.studentmanager.model.Grade
 import com.example.studentmanager.model.StudentWithGrades
 import com.example.studentmanager.view.DateHelper
+import com.example.studentmanager.viewmodel.StudentsViewModel
+import kotlinx.android.synthetic.main.list_row_one_student_grades.view.*
 import java.util.*
 
-class StudentWithGradesAdapter (var studentGradesList: LiveData<List<StudentWithGrades>>, var studentId: Int)
+class StudentWithGradesAdapter (var studentGradesList: LiveData<List<StudentWithGrades>>,
+                                var studentId: Int,
+                                var viewModel: StudentsViewModel)
     : RecyclerView.Adapter<StudentWithGradesAdapter.Holder>() {
     class Holder(view: View): RecyclerView.ViewHolder(view)
 
@@ -47,11 +51,16 @@ class StudentWithGradesAdapter (var studentGradesList: LiveData<List<StudentWith
 
         val dateHelper = DateHelper()
 
-        val tvName = holder.itemView.findViewById<TextView>(R.id.tvGradeName)
-        val tvDate = holder.itemView.findViewById<TextView>(R.id.tvGradeDate)
-        val tvNote = holder.itemView.findViewById<TextView>(R.id.tvGradeNote)
+        val tvName = holder.itemView.tvGradeName
+        val tvDate = holder.itemView.tvGradeDate
+        val tvNote = holder.itemView.tvGradeNote
+        val btnRemove = holder.itemView.btnGradeRemove
         tvName.text = currentItem.name
         tvDate.text = dateHelper.getDateText(currentItem.date)
         tvNote.text = currentItem.note
+
+        btnRemove.setOnClickListener {
+            viewModel.deleteGrade(currentItem)
+        }
     }
 }

@@ -9,8 +9,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.studentmanager.R
 import com.example.studentmanager.model.Course
 import com.example.studentmanager.model.StudentWithCourses
+import com.example.studentmanager.viewmodel.StudentsViewModel
+import kotlinx.android.synthetic.main.list_row_one_student_courses.view.*
 
-class StudentWithCoursesAdapter (var studentCoursesList: LiveData<List<StudentWithCourses>>, var studentId: Int)
+class StudentWithCoursesAdapter (var studentCoursesList: LiveData<List<StudentWithCourses>>,
+                                 var studentId: Int,
+                                 var viewModel: StudentsViewModel)
     : RecyclerView.Adapter<StudentWithCoursesAdapter.Holder>() {
     class Holder(view: View): RecyclerView.ViewHolder(view)
 
@@ -42,7 +46,12 @@ class StudentWithCoursesAdapter (var studentCoursesList: LiveData<List<StudentWi
             }
         }
 
-        val tvName = holder.itemView.findViewById<TextView>(R.id.tvCourseName)
+        val tvName = holder.itemView.tvCourseName
+        val btnRemove = holder.itemView.btnCourseRemove
         tvName.text = currentItem.name
+
+        btnRemove.setOnClickListener {
+            viewModel.deleteStudentFromCourse(studentId, currentItem.courseId)
+        }
     }
 }

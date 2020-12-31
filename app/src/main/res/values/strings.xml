@@ -23,7 +23,7 @@
     <string name="course_students">Uczestnicy kursu:</string>
     <string name="menu_edit">Edytuj</string>
     <string name="menu_remove">Usuń</string>
-    <string name="note">Note</string>
+    <string name="note">Notatka</string>
     <string name="name">Name</string>
     <string name="student_courses">Kursy:</string>
     <string name="grades">Oceny:</string>
@@ -36,6 +36,7 @@
     <string name="toast_succes">Sukces!</string>
     <string name="rapport">Raport</string>
     <string name="grades_today">Oceny z dnia</string>
+    <string name="remove">REMOVE</string>
 
     <string name="label_welcome">Menu</string>
     <string name="label_studentList">Lista studentów</string>
@@ -47,4 +48,9 @@
     <string name="label_add">Dodaj</string>
     <string name="label_edit">Edytuj</string>
     <string name="label_addToCourse">Dodaj do kursu</string>
+
+    <string name="alert_are_you_sure">Jesteś pewien, że chcesz usunąć ten obiekt? Operacja jest nieodwracalna.</string>
+    <string name="alert_are_you_sure_title">Usunąć obiekt?</string>
+    <string name="alert_yes">Tak</string>
+    <string name="alert_no">Nie</string>
 </resources>
