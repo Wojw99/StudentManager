@@ -14,6 +14,7 @@
     <string name="first_name">Imię</string>
     <string name="last_name">Nazwisko</string>
     <string name="group">Kurs</string>
+    <string name="grade">Ocena</string>
     <string name="add">Dodaj</string>
     <string name="editStudent">Edytuj</string>
     <string name="g">G</string>

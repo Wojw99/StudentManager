@@ -52,13 +52,13 @@ class UpdateCourseFragment : Fragment() {
             val updatedCourse = Course(args.currentCourse.courseId, name, note)
             viewModel.updateCourse(updatedCourse)
 
-            Toast.makeText(requireContext(), "Success!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), getText(R.string.toast_succes), Toast.LENGTH_SHORT).show()
 
             findNavController().navigateUp()
             findNavController().navigateUp()
         }
         else{
-            Toast.makeText(requireContext(), "Please fill out all fields.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), getText(R.string.warning_input_incorrect), Toast.LENGTH_SHORT).show()
         }
     }
 

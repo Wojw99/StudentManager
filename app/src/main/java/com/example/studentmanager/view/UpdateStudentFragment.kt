@@ -49,13 +49,13 @@ class UpdateStudentFragment : Fragment() {
             val updatedStudent = Student(args.currentStudent.studentId, firstName, lastName, note)
             viewModel.updateStudent(updatedStudent)
 
-            Toast.makeText(requireContext(), "Success!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), getText(R.string.toast_succes), Toast.LENGTH_SHORT).show()
 
             findNavController().navigateUp()
             findNavController().navigateUp()
         }
         else{
-            Toast.makeText(requireContext(), "Please fill out all fields.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), getText(R.string.warning_input_incorrect), Toast.LENGTH_SHORT).show()
         }
     }
 
