@@ -27,16 +27,16 @@ class WelcomeFragment : Fragment() {
         val buttonCourses = view.findViewById<View>(R.id.buttonCourses)
         val buttonReport = view.findViewById<View>(R.id.buttonReport)
 
-        buttonStudents.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.action_welcomeFragment_to_studentListFragment)
-        }
-
-        buttonCourses.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.action_welcomeFragment_to_coursesListFragment)
-        }
-
-        buttonReport.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.action_welcomeFragment_to_raportFragment)
-        }
+//        buttonStudents.setOnClickListener {
+//            Navigation.findNavController(view).navigate(R.id.action_welcomeFragment_to_studentListFragment)
+//        }
+//
+//        buttonCourses.setOnClickListener {
+//            Navigation.findNavController(view).navigate(R.id.action_welcomeFragment_to_coursesListFragment)
+//        }
+//
+//        buttonReport.setOnClickListener {
+//            Navigation.findNavController(view).navigate(R.id.action_welcomeFragment_to_raportFragment)
+//        }
     }
 }

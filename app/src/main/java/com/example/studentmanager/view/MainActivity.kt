@@ -10,6 +10,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import com.example.studentmanager.R
 import com.example.studentmanager.data.StudentDao
 import com.example.studentmanager.data.StudentDatabase
@@ -20,6 +21,7 @@ import com.example.studentmanager.model.Student
 import com.example.studentmanager.repository.StudentRepository
 import com.example.studentmanager.viewmodel.CoursesViewModel
 import com.example.studentmanager.viewmodel.StudentsViewModel
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.time.LocalDateTime
@@ -40,6 +42,10 @@ class MainActivity : AppCompatActivity() {
         studentViewModel = ViewModelProvider(this).get(StudentsViewModel::class.java)
         courseViewModel = ViewModelProvider(this).get(CoursesViewModel::class.java)
 
+        val bottomNavView = findViewById<BottomNavigationView>(R.id.navigationView)
+        val navController = findNavController((R.id.fragment))
+
+        bottomNavView.setupWithNavController(navController)
         //makeSampleEntities()
     }
 

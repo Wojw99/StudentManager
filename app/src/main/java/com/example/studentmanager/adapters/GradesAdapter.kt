@@ -27,12 +27,14 @@ class GradesAdapter(var gradeList: List<Grade>): RecyclerView.Adapter<GradesAdap
         val tvName = holder.itemView.tvGradeName
         val tvDate = holder.itemView.tvGradeDate
         val tvNote = holder.itemView.tvGradeNote
+        val tvCourse = holder.itemView.tvGradeCourse
 
         val dateHelper = DateHelper()
 
         tvName.text = currentGrade.name
         tvDate.text = dateHelper.getDateText(currentGrade.date)
         tvNote.text = currentGrade.note
+        tvCourse.text = currentGrade.course
     }
 
 }

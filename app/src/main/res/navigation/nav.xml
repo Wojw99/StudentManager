@@ -3,23 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav"
-    app:startDestination="@id/welcomeFragment">
+    app:startDestination="@id/raportFragment">
 
     <fragment
         android:id="@+id/welcomeFragment"
         android:name="com.example.studentmanager.view.WelcomeFragment"
         android:label="@string/label_welcome"
-        tools:layout="@layout/fragment_welcome" >
-        <action
-            android:id="@+id/action_welcomeFragment_to_studentListFragment"
-            app:destination="@id/studentListFragment" />
-        <action
-            android:id="@+id/action_welcomeFragment_to_coursesListFragment"
-            app:destination="@id/coursesListFragment" />
-        <action
-            android:id="@+id/action_welcomeFragment_to_raportFragment"
-            app:destination="@id/raportFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_welcome" />
     <fragment
         android:id="@+id/studentAddFragment"
         android:name="com.example.studentmanager.view.AddStudentFragment"
@@ -88,6 +78,9 @@
         <argument
             android:name="currentCourse"
             app:argType="com.example.studentmanager.model.Course" />
+        <action
+            android:id="@+id/action_oneCourseFragment_to_oneStudentFragment"
+            app:destination="@id/oneStudentFragment" />
     </fragment>
     <fragment
         android:id="@+id/oneStudentFragment"

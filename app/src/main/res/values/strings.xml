@@ -2,7 +2,7 @@
     <string name="app_name">StudentManager</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="report">raport</string>
+    <string name="report">Raport</string>
     <string name="students">Studenci</string>
     <string name="courses">Kursy</string>
     <string name="welcome">Witaj!</string>
@@ -36,7 +36,7 @@
     <string name="warning_course_empty">Przed dodaniem oceny utwórz dowolny kurs.</string>
     <string name="toast_succes">Sukces!</string>
     <string name="rapport">Raport</string>
-    <string name="grades_today">Oceny z dnia</string>
+    <string name="grades_today">Oceny z dnia:</string>
     <string name="remove">REMOVE</string>
 
     <string name="label_welcome">Menu</string>
